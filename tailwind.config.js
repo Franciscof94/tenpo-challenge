@@ -1,5 +1,55 @@
-module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  theme: { extend: {} },
+// tailwind.config.js
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: "#fdf6f0",
+          100: "#fae8d7",
+          200: "#f5d0b8",
+          300: "#f1b991",
+          400: "#ec9f6a",
+          500: "#e6863d",
+          600: "#c96d2b",
+          700: "#a0551e",
+          800: "#7a3e15",
+          900: "#5c2e10",
+        },
+        secondary: {
+          50: "#f3f7fa",
+          100: "#e1ecf4",
+          200: "#c3d9e8",
+          300: "#a3c5db",
+          400: "#7eb0ce",
+          500: "#5399be",
+          600: "#357ca3",
+          700: "#256184",
+          800: "#1a4863",
+          900: "#12344a",
+        },
+        accent: {
+          50: "#fdf6fa",
+          100: "#fae8f2",
+          200: "#f5d0e4",
+          300: "#f1b9d6",
+          400: "#ec9fc7",
+          500: "#e686b6",
+          600: "#c96d9b",
+          700: "#a0557b",
+          800: "#7a3e5c",
+          900: "#5c2e44",
+        },
+        success: "#a7f3d0",
+        warning: "#fef08a",
+        error: "#fecaca",
+        info: "#bae6fd",
+      },
+      fontFamily: {
+        sans: ["Montserrat", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+      },
+    },
+  },
   plugins: [],
 };

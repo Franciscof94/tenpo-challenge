@@ -1,4 +1,3 @@
-import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -9,17 +8,18 @@ import { AuthProvider } from "@/contexts/provider/auth/AuthProvider";
 import LoginPage from "@/pages/LoginPage";
 import PrivateRoute from "./PrivateRoute";
 import HomePage from "@/pages/HomePage";
+import { ROUTES } from "./routes";
 
-const AppRoutes: React.FC = () => {
+const AppRoutes = () => {
   return (
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
+          <Route path={ROUTES.public.LOGIN} element={<LoginPage />} />
           <Route element={<PrivateRoute />}>
-            <Route path="/home" element={<HomePage />} />
+            <Route path={ROUTES.private.HOME} element={<HomePage />} />
           </Route>
-          <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route path="*" element={<Navigate to={ROUTES.public.LOGIN} replace />} />
         </Routes>
       </Router>
     </AuthProvider>

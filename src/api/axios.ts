@@ -1,5 +1,6 @@
 import axios from "axios";
 import authService from "../services/auth/auth.service";
+import { ROUTES } from "@/routes/routes";
 
 const axiosInstance = axios.create({
   baseURL: "https://gutendex.com",
@@ -10,7 +11,6 @@ axiosInstance.interceptors.request.use(
     const token = authService.getStoredToken();
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
-      console.log("Interceptor: Token added to header");
     }
     return config;
   },
@@ -25,9 +25,9 @@ axiosInstance.interceptors.response.use(
     if (error.response && error.response.data) {
       const { message } = error.response.data;
 
-      if (message === "Unauthenticated.") {
-        window.location.href = "/login";
-        sessionStorage.removeItem("authToken");
+      if (error.response && error.response.status === 401) {
+        window.location.href = ROUTES.public.LOGIN;
+        authService.logout();
       } else {
         console.error("Error in response:", message || "Network error");
       }

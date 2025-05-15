@@ -8,7 +8,7 @@ interface SpinnerProps {
 
 export const Spinner: FC<SpinnerProps> = ({
   size = "md",
-  color = "text-purple-400",
+  color = "text-primary-400",
 }) => {
   const sizeClasses = {
     sm: "text-xl",

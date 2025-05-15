@@ -1,7 +1,9 @@
+import { AUTH_KEY } from "@/routes/routes";
+
 class AuthService {
   getStoredToken(): string | null {
     try {
-      return sessionStorage.getItem("authToken");
+      return sessionStorage.getItem(AUTH_KEY);
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error("Error getting token:", error.message);
@@ -18,12 +20,12 @@ class AuthService {
       setTimeout(() => {
         const fakeToken = `fake-jwt-token-${Date.now()}`;
         resolve({ token: fakeToken });
-      }, 500);
+      }, 1000);
     });
   }
 
   async logout(): Promise<void> {
-    sessionStorage.removeItem("authToken");
+    sessionStorage.removeItem(AUTH_KEY);
     return Promise.resolve();
   }
 

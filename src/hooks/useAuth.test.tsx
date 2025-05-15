@@ -3,6 +3,7 @@ import { renderHook, act, type RenderHookResult } from "@testing-library/react";
 import { AuthProvider } from "../contexts/provider/auth/AuthProvider";
 import { useAuth } from "./useAuth";
 import { type AuthContextType } from "../contexts/context/auth/AuthContext";
+import { AUTH_KEY } from "../routes/routes";
 
 const mockSessionStorage = (() => {
   let store: Record<string, string> = {};
@@ -47,7 +48,7 @@ describe("useAuth Hook", () => {
   });
 
   test("logout elimina el token y actualiza isAuthenticated", () => {
-    mockSessionStorage.setItem("authToken", "test-token");
+    mockSessionStorage.setItem(AUTH_KEY, "test-token");
 
     const { result } = renderHook(() => useAuth(), {
       wrapper,

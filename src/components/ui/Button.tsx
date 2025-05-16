@@ -27,11 +27,19 @@ export const Button: FC<ButtonProps> = ({
     secondary:
       "bg-secondary-100 text-secondary-700 border border-secondary-300 hover:bg-secondary-200 focus:ring-secondary-300",
   };
-  
+
+  const isDisabled = isLoading || disabled;
+
   return (
-    <button 
-      className={`${base} ${variants[variant]} ${className} flex items-center justify-center`} 
-      disabled={isLoading || disabled} 
+    <button
+      className={`${base} ${
+        variants[variant]
+      } ${className} flex items-center justify-center ${
+        isDisabled
+          ? "opacity-50 cursor-not-allowed hover:bg-primary-500 hover:bg-secondary-100 pointer-events-none"
+          : ""
+      }`}
+      disabled={isDisabled}
       {...props}
     >
       {isLoading ? (

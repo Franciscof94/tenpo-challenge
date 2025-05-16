@@ -6,6 +6,7 @@ import { useAuth } from "@/hooks/useAuth";
 import authService from "@/services/auth/auth.service";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
+import { isEmailValid } from "@/utils/isEmailValid";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -31,7 +32,7 @@ const LoginPage = () => {
     }
   };
 
-  const isDisabled = email.trim() === "" || password.trim() === "" || loading;
+  const isDisabled = !isEmailValid(email) || password.trim() === "" || loading;
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-primary-50 text-secondary-800 p-4">

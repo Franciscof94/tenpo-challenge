@@ -1,9 +1,9 @@
 import { type ReactNode } from "react";
 import { renderHook, act, type RenderHookResult } from "@testing-library/react";
-import { AuthProvider } from "../contexts/provider/auth/AuthProvider";
-import { useAuth } from "./useAuth";
-import { type AuthContextType } from "../contexts/context/auth/AuthContext";
-import { AUTH_KEY } from "../routes/routes";
+import { useAuth } from "../../hooks/useAuth";
+import { AUTH_KEY } from "../../routes/routes";
+import { AuthProvider } from "@/context/provider/auth/AuthProvider";
+import type { AuthContextType } from "@/context/context/auth/AuthContext";
 
 const mockSessionStorage = (() => {
   let store: Record<string, string> = {};

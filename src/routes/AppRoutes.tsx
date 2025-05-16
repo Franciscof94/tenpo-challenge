@@ -4,7 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { AuthProvider } from "@/contexts/provider/auth/AuthProvider";
+import { AuthProvider } from "@/context/provider/auth/AuthProvider";
 import LoginPage from "@/pages/LoginPage";
 import PrivateRoute from "./PrivateRoute";
 import HomePage from "@/pages/HomePage";
@@ -15,11 +15,18 @@ const AppRoutes = () => {
     <AuthProvider>
       <Router>
         <Routes>
+          {/* Rutas Públicas */}
           <Route path={ROUTES.public.LOGIN} element={<LoginPage />} />
+
+          {/* Rutas Privadas (Protegidas) */}
           <Route element={<PrivateRoute />}>
             <Route path={ROUTES.private.HOME} element={<HomePage />} />
           </Route>
-          <Route path="*" element={<Navigate to={ROUTES.public.LOGIN} replace />} />
+          
+          <Route
+            path="*"
+            element={<Navigate to={ROUTES.public.LOGIN} replace />}
+          />
         </Routes>
       </Router>
     </AuthProvider>

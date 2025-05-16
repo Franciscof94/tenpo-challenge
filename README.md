@@ -1,4 +1,4 @@
-# 🌟 Desafío Técnico Tenpo - Aplicación React con TypeScript
+# 🌟 Desafío Técnico Tenpo - App React con TypeScript
 
 Este proyecto es una solución al desafío técnico propuesto por Tenpo, desarrollado como una aplicación web responsiva utilizando **React** y **TypeScript**. Incluye una pantalla de login con autenticación simulada, una página principal que muestra una lista de libros obtenidos de la API **Gutendex**, y una funcionalidad de logout, cumpliendo con todos los requisitos establecidos.
 
@@ -12,9 +12,9 @@ La solución aborda cada uno de los puntos especificados en el desafío:
 - **Responsividad**: Diseñada para ser funcional tanto en web como en dispositivos móviles mediante el uso de **Tailwind CSS**.
 - **Manejo de Estilos**: Se optó por Tailwind CSS para un diseño eficiente, moderno y adaptable.
 - **README y Documentación**: Este archivo incluye instrucciones claras para instalar, ejecutar y entender la solución.
-- **Almacenamiento del Token**: El token falso se guarda en **`sessionStorage`**, una elección adecuada para persistir la sesión en memoria mientras el navegador está abierto.
+- **Almacenamiento del Token**: El token fake se guarda en **`sessionStorage`**, una elección adecuada para persistir la sesión en memoria mientras el navegador está abierto.
 - **Arquitectura Pública/Privada**: Utiliza **React Router** con rutas públicas (login) y privadas (home), soportadas por un contexto de autenticación (`AuthContext`).
-- **Feedback en Fetching**: Se implementan indicadores de carga (loading) durante las peticiones a la API, y se configura **Axios** para enviar el token falso en los headers.
+- **Feedback en Fetching**: Se implementan indicadores de carga (loading) durante las peticiones a la API, y se configura **Axios** para enviar el token fake en los headers.
 - **Visualización de la Lista**: La lista de libros se muestra mediante **Infinite Scroll**, cargando 32 elementos por vez, optimizando rendimiento y experiencia.
 - **Estrategia de Logout**: Elimina el token de `sessionStorage`, actualiza el contexto y redirige al login.
 - **Pruebas Unitarias**: Se agregaron pruebas para `BookCard.tsx`, `useAuth.ts`, `Spinner.tsx` y `ErrorRetry.tsx`.
@@ -25,7 +25,7 @@ La solución aborda cada uno de los puntos especificados en el desafío:
 ## ✨ Características Principales
 
 - **Pantalla de Login**: Formulario simple con validación básica y simulación de autenticación.
-- **Fake Login**: Retorna un token falso tras un retraso simulado, almacenándolo en `sessionStorage`.
+- **Fake Login**: Retorna un token fake tras un retraso simulado, almacenándolo en `sessionStorage`.
 - **Pantalla Home**: Conecta con **Gutendex API** (`https://gutendex.com`) para mostrar una lista de libros con Infinite Scroll.
 - **Logout**: Limpia la sesión y redirige al login.
 - **Rutas Protegidas**: Solo usuarios "autenticados" acceden a la página principal.
@@ -40,7 +40,7 @@ La solución aborda cada uno de los puntos especificados en el desafío:
 tenpo-challenge/
 ├── public/         # Archivos estáticos
 ├── src/
-│   ├── contexts/   # AuthContext
+│   ├── context/   # AuthContext
 │   ├── pages/      # LoginPage, HomePage
 │   ├── routes/     # PrivateRoute
 │   ├── services/   # authService, booksService
@@ -93,7 +93,7 @@ tenpo-challenge/
 
 ### Login
 - Ingreso de correo y contraseña (cualquier valor no vacío es válido).
-- Simulación de petición con retraso de 1 segundo, generando un token falso (`fake-token-123`).
+- Simulación de petición con retraso de 1 segundo, generando un token fake (`fake-token-123`).
 - Redirección a la página principal tras almacenar el token en `sessionStorage`.
 
 ### Home
@@ -139,7 +139,3 @@ tenpo-challenge/
 - Login simulado sin backend real.
 - **Gutendex API** elegida por simplicidad y paginación.
 - Pruebas unitarias incluidas para `BookCard.tsx`, `useAuth.ts`, `Spinner.tsx` y `ErrorRetry.tsx`.
-
----
-
-Este proyecto demuestra habilidades en frontend, arquitectura modular, optimización y testing, cumpliendo con el desafío de Tenpo.

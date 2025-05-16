@@ -4,7 +4,6 @@ import { FiMail, FiLock, FiLogIn, FiAlertCircle } from "react-icons/fi";
 import { BiLibrary } from "react-icons/bi";
 import { useAuth } from "@/hooks/useAuth";
 import authService from "@/services/auth/auth.service";
-import { Spinner } from "@/components/ui/Spinner";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 
@@ -31,6 +30,8 @@ const LoginPage = () => {
       setLoading(false);
     }
   };
+
+  const isDisabled = (email.trim() === "" && password.trim() === "") || loading;
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-primary-50 text-secondary-800 p-4">
@@ -100,20 +101,12 @@ const LoginPage = () => {
 
             <Button
               type="submit"
-              disabled={loading}
-              className="w-full font-semibold py-3 px-4 rounded-xl transition-all duration-300 disabled:opacity-50 flex items-center justify-center shadow-sm"
+              disabled={isDisabled}
+              isLoading={loading}
+              iconLeft={<FiLogIn className="h-5 w-5" />}
+              className="w-full font-semibold py-3 px-4 rounded-xl transition-all duration-300 disabled:opacity-50 shadow-sm"
             >
-              {loading ? (
-                <>
-                  <Spinner size="sm" color="text-white" />
-                  <span className="ml-2">Ingresando...</span>
-                </>
-              ) : (
-                <>
-                  <FiLogIn className="h-5 w-5 mr-2" />
-                  Ingresar
-                </>
-              )}
+              Ingresar
             </Button>
           </form>
         </div>

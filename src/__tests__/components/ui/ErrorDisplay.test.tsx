@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { ErrorDisplay } from "./ErrorDisplay";
+import { ErrorDisplay } from "@/components/ui/ErrorDisplay";
 
 describe("ErrorDisplay Component", () => {
   test("renderiza con mensaje por defecto", () => {

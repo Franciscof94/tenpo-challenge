@@ -25,9 +25,9 @@ const Header = () => {
         <Button
           onClick={handleLogout}
           variant="secondary"
-          className="font-medium py-2 px-4 rounded-full transition duration-300 flex items-center md:space-x-2 shadow-sm"
+          iconLeft={<FiLogOut className="text-lg" />}
+          className="font-medium py-2 px-4 rounded-full transition duration-300 md:space-x-2 shadow-sm"
         >
-          <FiLogOut className="text-lg" />
           <span className="hidden md:inline">Cerrar Sesión</span>
         </Button>
       </div>

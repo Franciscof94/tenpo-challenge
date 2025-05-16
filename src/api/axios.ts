@@ -1,9 +1,10 @@
 import axios from "axios";
-import authService from "../services/auth/auth.service";
+
 import { ROUTES } from "@/routes/routes";
+import authService from "@/services/auth/auth.service";
 
 const axiosInstance = axios.create({
-  baseURL: "https://gutendex.com",
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 axiosInstance.interceptors.request.use(

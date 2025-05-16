@@ -48,7 +48,7 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-primary-50 text-secondary-800">
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 md:py-8">
         {books.length === 0 && !isLoading && !error && (
           <div className="text-center py-16 bg-white rounded-xl border border-secondary-200 mt-8">
             <FiBook className="text-5xl mx-auto text-secondary-400 mb-4" />

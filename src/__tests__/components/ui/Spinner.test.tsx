@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Spinner } from "./Spinner";
+import { Spinner } from "@/components/ui/Spinner";
 
 describe("Spinner Component", () => {
   test("renderiza correctamente con tamaño predeterminado", () => {
@@ -7,7 +7,7 @@ describe("Spinner Component", () => {
     const spinnerElement = screen.getByTestId("spinner-svg");
     expect(spinnerElement).toBeInTheDocument();
     expect(spinnerElement).toHaveClass("text-3xl");
-    expect(spinnerElement).toHaveClass("text-purple-400");
+    expect(spinnerElement).toHaveClass("text-primary-400");
   });
 
   test("renderiza correctamente con tamaño pequeño", () => {

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { BookCard } from "./BookCard";
+import { BookCard } from "../../components/BookCard";
 
 describe("BookCard Component", () => {
   const mockBook = {

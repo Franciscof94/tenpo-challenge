@@ -1,6 +1,7 @@
+import { AuthContext } from "@/context/context/auth/AuthContext";
+import { AUTH_KEY } from "@/routes/routes";
 import { useState, type ReactNode } from "react";
-import { AuthContext } from "../../context/auth/AuthContext";
-import { AUTH_KEY } from "../../../routes/routes";
+
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [token, setToken] = useState<string | null>(() => {

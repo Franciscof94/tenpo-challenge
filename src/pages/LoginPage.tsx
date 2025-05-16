@@ -31,7 +31,7 @@ const LoginPage = () => {
     }
   };
 
-  const isDisabled = (email.trim() === "" && password.trim() === "") || loading;
+  const isDisabled = email.trim() === "" || password.trim() === "" || loading;
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-primary-50 text-secondary-800 p-4">

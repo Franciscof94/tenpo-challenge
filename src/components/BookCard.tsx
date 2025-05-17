@@ -1,19 +1,7 @@
 import { forwardRef } from "react";
 import { FiDownload, FiBookOpen } from "react-icons/fi";
-
-interface Book {
-  id: number;
-  title: string;
-  formats: {
-    "image/jpeg"?: string;
-  };
-  authors: Array<{
-    name: string;
-    birth_year?: number;
-    death_year?: number;
-  }>;
-  download_count: number;
-}
+import type { Book } from "@/interfaces/books/book.interface";
+import { formatNumber } from "@/utils/formatNumber";
 
 interface BookCardProps {
   book: Book;
@@ -25,10 +13,6 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
       book.authors && book.authors.length > 0
         ? book.authors[0].name
         : "Autor desconocido";
-
-    const formattedDownloads = new Intl.NumberFormat("es-ES").format(
-      book.download_count
-    );
 
     const authorYears =
       book.authors && book.authors.length > 0 && book.authors[0].birth_year
@@ -82,7 +66,7 @@ export const BookCard = forwardRef<HTMLDivElement, BookCardProps>(
           <div className="mt-auto pt-3 border-t border-secondary-200">
             <div className="flex items-center text-secondary-600 text-xs">
               <FiDownload className="h-4 w-4 mr-1" />
-              <span>{formattedDownloads} descargas</span>
+              <span>{formatNumber(book.download_count)} descargas</span>
             </div>
           </div>
         </div>
